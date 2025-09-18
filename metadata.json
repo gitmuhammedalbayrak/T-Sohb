@@ -1,0 +1,5 @@
+{
+  "name": "Trello AI Assistant",
+  "description": "An application to analyze and chat about your Trello cards. Upload your Trello board's JSON export, filter cards completed recently, and use an AI-powered chat to get insights from your data.",
+  "requestFramePermissions": []
+}
