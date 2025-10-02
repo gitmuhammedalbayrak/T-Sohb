@@ -1,8 +1,14 @@
 <!-- EY-Repo Std v1.0 -->
 
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
+
 # Trello AI Assistant
 
 > Trello panonuzdaki tamamlanmış görevleri yapay zeka ile analiz edin ve özetleyin.
+>
+> Projeyi AI Studio'da görüntüleyin: https://ai.studio/apps/drive/1_FMmNVP4djK6XyivbQO2MvZtz524E1xr
 
 ---
 
@@ -11,13 +17,13 @@
 - **Projenin Tam Adı:** `Trello AI Assistant`
 - **Yazar / Sahip:** Muhammed Albayrak - [@gitmuhammedalbayrak](https://github.com/gitmuhammedalbayrak)
 - **Lisans:** `MIT`
-- **Doğum / Başlangıç Tarihi:** `<YYYY-AA-GG>`
+- **Doğum / Başlangıç Tarihi:** `2024`
 - **Geliştirilme Durumu:** `Aktif`
 
 ## Proje Hakkında
 
 ### İlham ve Gerekçe
-<Bu projenin ortaya çıkmasına neyin ilham verdiğini ve hangi temel ihtiyacı veya sorunu çözmek için geliştirildiğini açıklayın. Örneğin: "Trello'da tamamlanan işleri raporlamak için harcanan manuel eforu azaltma ihtiyacı.">
+Bu proje, proje yönetimi süreçlerinde sıkça karşılaşılan bir zorluğa çözüm olarak doğmuştur: tamamlanan görevler üzerinden hızlı ve anlamlı raporlar oluşturmanın ve üretkenliği analiz etmenin zorluğu. Trello gibi araçlar görev takibi için harika olsa da, geçmişe dönük analizler yapmak veya "Bu hafta neler başardık?" gibi basit bir soruya anında yanıt almak genellikle manuel bir çaba gerektirir. Bu araç, bu süreci otomatikleştirmek ve yapay zeka ile daha sezgisel hale getirmek amacıyla geliştirilmiştir.
 
 ### Amaç ve Hedefler
 Bu araç, kullanıcıların Trello panolarından dışa aktardıkları JSON verilerini kullanarak son tamamlanan görevler hakkında hızlıca içgörüler elde etmelerini sağlamayı hedefler. Temel amaç, yapay zeka destekli bir sohbet arayüzü üzerinden üretkenliği analiz etmeyi kolaylaştırmaktır.
@@ -34,11 +40,17 @@ Bu araç, kullanıcıların Trello panolarından dışa aktardıkları JSON veri
 Projenin gelişim süreci ve gelecekteki hedefleri aşağıda özetlenmiştir.
 
 - **Kısa Vadeli Hedefler (Now):**
-  - `<Önümüzdeki 1-3 ay içinde tamamlanması planlanan özellikler veya görevler>`
+  - Kullanıcı arayüzünü (UI/UX) iyileştirmek ve daha akıcı bir deneyim sunmak.
+  - Farklı Trello JSON formatları için hata yönetimini güçlendirmek.
+  - Yapay zeka cevaplarının kalitesini artırmak için prompt mühendisliği çalışmaları yapmak.
 - **Orta Vadeli Hedefler (Next):**
-  - `<Gelecek 3-9 ay için planlanan hedefler>`
+  - Manuel JSON yüklemesi yerine Trello API'sine doğrudan entegrasyon sağlamak.
+  - Analiz sonuçlarını (sohbet özetleri, grafikler) dışa aktarma özelliği eklemek.
+  - Temel metrikler için görselleştirme (grafik, tablo) yetenekleri kazandırmak.
 - **Uzun Vadeli Hedefler (Later):**
-  - `<Projenin vizyonu ve 1+ yıl içinde ulaşılması hedeflenen büyük kilometre taşları>`
+  - Jira, Asana gibi diğer popüler proje yönetim araçları için destek eklemek.
+  - Takım bazında üretkenlik analizi ve karşılaştırmalı raporlar sunmak.
+  - Belirli periyotlarda (örn. haftalık) otomatik raporlar ve özetler oluşturan bir sistem geliştirmek.
 
 ---
 
@@ -58,28 +70,32 @@ Anahtar bağımlılıklar `@google/genai`, `react` ve `react-dom`'dur. Tüm bağ
 
 ### Gereksinimler
 - **İşletim Sistemi:** `Windows, macOS, Linux`
-- **Diğer Gereksinimler:** `Node.js (LTS versiyonu önerilir)`, `npm` veya `yarn`
+- **Diğer Gereksinimler:** `Node.js (LTS versiyonu önerilir)`
 
 ---
 
 ## 🚀 Kurulum ve Çalıştırma
 
-### Kurulum Talimatları
-1.  Bu repoyu klonlayın:
+### Kurulum ve Yerel Çalıştırma
+1.  **Repoyu Klonlayın:**
     ```bash
     git clone https://github.com/gitmuhammedalbayrak/trello-ai-assistant.git
     cd trello-ai-assistant
     ```
-2.  Bağımlılıkları yükleyin:
+2.  **Bağımlılıkları Yükleyin:**
     ```bash
     npm install
     ```
-
-### Nasıl Çalıştırılır?
-Uygulamayı geliştirme modunda başlatmak için aşağıdaki komutu kullanın. Bu, uygulamayı `http://localhost:5173` adresinde açacaktır.
-```bash
-npm run dev
-```
+3.  **API Anahtarını Ayarlayın:**
+    `.env.local.example` dosyasının bir kopyasını oluşturup `.env.local` olarak adlandırın. Ardından dosya içindeki `GEMINI_API_KEY` değişkenine kendi [Google AI Studio](https://ai.studio.google.com/app/apikey) API anahtarınızı girin.
+    ```
+    GEMINI_API_KEY="YOUR_API_KEY_HERE"
+    ```
+4.  **Uygulamayı Başlatın:**
+    Uygulamayı geliştirme modunda başlatmak için aşağıdaki komutu kullanın. Bu, uygulamayı varsayılan olarak `http://localhost:5173` adresinde açacaktır.
+    ```bash
+    npm run dev
+    ```
 
 ---
 
